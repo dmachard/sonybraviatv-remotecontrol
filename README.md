@@ -3,7 +3,7 @@
 
 ![](https://github.com/dmachard/sonybraviatv_remotecontrol-gateway/workflows/Publish%20to%20PyPI/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/sonybraviatv-remotecontrol)
+![PyPI - Python version supported](https://img.shields.io/pypi/pyversions/sonybraviatv-remotecontrol)
 
 | | |
 | ------------- | ------------- |
