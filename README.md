@@ -1,7 +1,7 @@
 
 # Python remote control for Sony Bravia TV
 
-![](https://github.com/dmachard/sonybraviatv_remotecontrol/workflows/Publish%20to%20PyPI/badge.svg)
+![](https://github.com/dmachard/sonybraviatv_remotecontrol-gateway/workflows/Publish%20to%20PyPI/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/sonybraviatv-remotecontrol)
 
@@ -61,6 +61,27 @@ optional arguments:
 To interact with the remote control, you need to use a websocket client and 
 send the following **JSON** commands to the address `ws://<remotecontrol_ip>:8081`.
 
+### Power ON/OFF
+
+```json
+{"button": "press_poweron"} // press on power on button
+{"button": "press_poweroff"} // press on power off button
+```
+
+### Channel selection
+
+```json
+{"button": "press_channel<id>"} // press on channel<1...XX> button
+```
+
+### Volume
+
+```json
+{"button": "press_volup"} // press on volume up button
+{"button": "press_voldown"} // press on volume down button
+{"button": "press_mute"} // press on mute button
+```
+
 ### TV Navigation
 
 ```json
@@ -71,6 +92,20 @@ send the following **JSON** commands to the address `ws://<remotecontrol_ip>:808
 {"button": "press_back"} // press on back button
 {"button": "press_confirm"} // press on confirm button
 ```
+
+### HDMI selection
+
+```json
+{"button": "press_hdmi<id>"} // press on channel<1..4> button
+```
+
+### Miscs buttons
+
+```json
+{"button": "press_netflix"} // press on netflix button
+{"button": "press_home"} // press on home button
+```
+
 
 ## Websocket client
 

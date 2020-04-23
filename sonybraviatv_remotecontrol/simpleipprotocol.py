@@ -285,6 +285,11 @@ class SimpleIpProtocol:
         self.send_command(msg_type=TYPE_CONTROL, command=CMD_IRCC, 
                           parms=PARMS_IRCC_RETURN)
 
+    def press_home(self):
+        """press home"""
+        self.send_command(msg_type=TYPE_CONTROL, command=CMD_IRCC, 
+                          parms=PARMS_IRCC_HOME)
+
     def press_reset(self):
         """press reset"""
         self.sock.close()
