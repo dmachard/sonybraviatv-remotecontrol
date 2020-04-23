@@ -6,7 +6,7 @@ import argparse
 import logging
 import re
 
-from sonybravia_remotecontrol import simpleipprotocol
+from sonybraviatv_remotecontrol import simpleipprotocol
 
 logging.basicConfig(format='%(asctime)s %(message)s', level=logging.DEBUG)
 

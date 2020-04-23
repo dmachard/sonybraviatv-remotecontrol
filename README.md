@@ -1,9 +1,9 @@
 
 # Python remote control for Sony Bravia TV
 
-![](https://github.com/dmachard/sonybravia_remotecontrol/workflows/Publish%20to%20PyPI/badge.svg)
+![](https://github.com/dmachard/sonybraviatv_remotecontrol/workflows/Publish%20to%20PyPI/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/sonybravia-remotecontrol)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/sonybraviatv-remotecontrol)
 
 | | |
 | ------------- | ------------- |
@@ -26,7 +26,7 @@ More details on Simple IP control https://pro-bravia.sony.net/develop/integrate/
 ## Installation
 
 ```python
-pip install sonybravia_remotecontrol
+pip install sonybraviatv_remotecontrol
 ```
 
 ## Start remote control
@@ -42,8 +42,8 @@ Enable “Simple IP control”
 After that, you can start the remote control and provides the address of your Sony bravia TV.
 
 ```
-sonybravia_remotecontrol --help
-usage: sonybravia_remotecontrol [-h] [--destport DESTPORT] [--desthost DESTHOST]
+sonybraviatv_remotecontrol --help
+usage: sonybraviatv_remotecontrol [-h] [--destport DESTPORT] [--desthost DESTHOST]
                         [--bindport BINDPORT] [--bindhost BINDHOST]
 
 optional arguments:
@@ -121,14 +121,14 @@ send the following **JSON** commands to the address `ws://<remotecontrol_ip>:808
 Example of system service file for Centos7
 
 ```bash
-vim /etc/systemd/system/sonybravia_remotecontrol.service
+vim /etc/systemd/system/sonybraviatv_remotecontrol.service
 
 [Unit]
 Description=Sony Bravia TV remote control Service
 After=network.target
 
 [Service]
-ExecStart=/usr/local/bin/sonybravia_remotecontrol --desthost=10.0.0.200
+ExecStart=/usr/local/bin/sonybraviatv_remotecontrol --desthost=10.0.0.200
 Restart=on-abort
 Type=simple
 User=root
@@ -139,7 +139,7 @@ WantedBy=multi-user.target
 
 ```bash
 systemctl daemon-reload
-systemctl start sonybravia_remotecontrol
-systemctl status sonybravia_remotecontrol
-systemctl enable sonybravia_remotecontrol
+systemctl start sonybraviatv_remotecontrol
+systemctl status sonybraviatv_remotecontrol
+systemctl enable sonybraviatv_remotecontrol
 ```
