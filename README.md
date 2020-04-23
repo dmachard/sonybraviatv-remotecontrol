@@ -31,12 +31,12 @@ pip install sonybraviatv_remotecontrol
 
 ## Start remote control
 
-As prerequisite, 
+As prerequisite configure your TV, 
 
-Enable remote device control
+1. Enable remote device control
  - `[HOME] Settings > Network > Home network setup > Renderer > Renderer function > Enable [Default: Enable]`
 
-Enable “Simple IP control”
+2. Enable “Simple IP control”
  - `[HOME] Settings > Network > Home network setup > IP control > Simple IP control > Enable [Default: Disable]`
  
 After that, you can start the remote control and provides the address of your Sony bravia TV.
