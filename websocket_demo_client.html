@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <title>RemoteControl demo</title>
+      <style type="text/css">
+          .buttons {
+              font-size: 1em;
+              display: flex;
+              justify-content: center;
+          }
+          .button {
+              padding: 2rem;
+              border: medium solid;
+              min-height: 1em;
+              min-width: 1em;
+              cursor: pointer;
+              user-select: none;
+          }
+      </style>
+  </head>
+  <body>
+    <div class="buttons">
+      <div class="poweron button">Power ON</div>
+      <div class="poweroff button">Power OFF</div>
+      <div class="hdmi1 button">hdmi1</div>
+      <div class="netflix button">Netflix</div>
+      <div class="reset button">Reset</div>
+    </div>
+    
+    <div class="buttons">
+      <div class="tf1 button">TF1</div>
+      <div class="fr2 button">France 2</div>
+      <div class="fr3 button">France 3</div>
+      <div class="tfx button">TFX</div>
+      <div class="lequipe button">L'équipe</div>
+    </div>
+    
+    <div class="buttons">
+      <div class="fr4 button">France 4</div>
+      <div class="fr5 button">France 5</div>
+      <div class="canalplus button">Canal+</div>
+      <div class="lcp button">LCP</div>
+      <div class="ter6 button">6ter</div>
+    </div>
+    
+    <div class="buttons">
+      <div class="m6 button">M6</div>
+      <div class="tmc button">TMC</div>
+      <div class="w9 button">W9</div>
+      <div class="nrj12 button">NRJ12</div>
+      <div class="numero23 button">Numéro 23</div>
+      <div class="frinfo button">France Info</div>
+    </div>
+    
+    <div class="buttons">
+      <div class="arte button">Arte</div>
+      <div class="c8 button">C8</div>
+      <div class="bfmtv button">BFM TV</div>
+      <div class="cnews button">CNEWS</div>
+      <div class="rmc button">RMC</div>
+      <div class="lci button">LCI</div>
+    </div>
+    
+    <div class="buttons">
+      <div class="cstar button">CStar</div>
+      <div class="gulli button">Gulli</div>
+      <div class="fro button">France Ô</div>
+      <div class="tf1series button">TF1 Séries Films</div>
+      <div class="cherie25 button">Chérie 25</div>
+    </div>
+    
+    <div class="buttons">
+      <div class="volup button">Volume UP</div>
+      <div class="voldown button">Volume DOWN</div> 
+      <div class="mute button">mute</div>
+      <div class="back button">back</div>
+    </div>
+    
+    <div class="buttons">
+        <div class="left button">LEFT</div>
+        <div class="right button">RIGHT</div>
+        <div class="up button">UP</div>
+        <div class="down button">DOWN</div>
+        <div class="confirm button">OK</div>
+    </div>
+    
+    <div class="buttons">
+    </div>
+    
+    
+    <script>
+      var websocket = new WebSocket("ws://localhost:8081/");
+
+      var poweron = document.querySelector('.poweron')
+      var poweroff = document.querySelector('.poweroff')
+      var reset = document.querySelector('.reset')
+      
+      var netflix = document.querySelector('.netflix')
+      var hdmi1 = document.querySelector('.hdmi1')
+      
+      var mute = document.querySelector('.mute')
+      var left = document.querySelector('.left')
+      var right = document.querySelector('.right')
+      var up = document.querySelector('.up')
+      var down = document.querySelector('.down')
+      var confirm = document.querySelector('.confirm')
+      var back = document.querySelector('.back')
+      
+      var tf1 = document.querySelector('.tf1')
+      var fr2 = document.querySelector('.fr2')
+      var fr3 = document.querySelector('.fr3')
+      var tfx = document.querySelector('.tfx')
+      var lequipe = document.querySelector('.lequipe')
+      
+      var fr4 = document.querySelector('.fr4')
+      var fr5 = document.querySelector('.fr5')
+      var nrj12 = document.querySelector('.nrj12')
+      var lcp = document.querySelector('.lcp')
+      var cherie25 = document.querySelector('.cherie25')
+      var frinfo = document.querySelector('.frinfo')
+      
+      var bfmtv = document.querySelector('.bfmtv')
+      var fro = document.querySelector('.fro')
+      var tf1series = document.querySelector('.tf1series')
+      var numero23 = document.querySelector('.numero23')
+      
+      var canalplus = document.querySelector('.canalplus')
+      var m6 = document.querySelector('.m6')
+      var tmc = document.querySelector('.tmc')
+      var w9 = document.querySelector('.w9')
+      var arte = document.querySelector('.arte')
+      var c8 = document.querySelector('.c8')
+      
+      var cnews = document.querySelector('.cnews')
+      var cstar = document.querySelector('.cstar')
+      var gulli = document.querySelector('.gulli')
+      var ter6 = document.querySelector('.ter6')
+      var rmc = document.querySelector('.rmc')
+      var lci = document.querySelector('.lci')
+      
+      var volup = document.querySelector('.volup')
+      var voldown = document.querySelector('.voldown')
+      
+      poweron.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_poweron'}));
+      }
+      poweroff.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_poweroff'}));
+      }
+      
+      tf1.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel1'}));
+      }
+      fr2.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel2'}));
+      }
+      fr3.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel3'}));
+      }
+      canalplus.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel4'}));
+      }
+      fr5.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel5'}));
+      }
+      m6.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel6'}));
+      }
+      arte.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel7'}));
+      }
+      c8.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel8'}));
+      }
+      w9.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel9'}));
+      }
+      tmc.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel10'}));
+      }
+      tfx.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel11'}));
+      }
+      nrj12.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel12'}));
+      }
+      lcp.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel13'}));
+      }
+      fr4.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel14'}));
+      }
+      bfmtv.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel15'}));
+      }
+      cnews.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel16'}));
+      }
+      cstar.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel17'}));
+      }
+      gulli.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel18'}));
+      }
+      fro.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel19'}));
+      }
+      tf1series.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel20'}));
+      }
+      lequipe.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel21'}));
+      }
+      ter6.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel22'}));
+      }
+      numero23.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel23'}));
+      }
+      rmc.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel24'}));
+      }
+      cherie25.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel25'}));
+      }
+      lci.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel26'}));
+      }
+      frinfo.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_channel27'}));
+      }
+      
+      hdmi1.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_hdmi1'}));
+      }
+      netflix.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_netflix'}));
+      }
+      mute.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_mute'}));
+      }
+      
+      volup.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_volup'}));
+      }
+      voldown.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_voldown'}));
+      }
+      
+      left.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_left'}));
+      }
+      right.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_right'}));
+      }
+      up.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_up'}));
+      }
+      down.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_down'}));
+      }
+      back.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_back'}));
+      }
+      confirm.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_confirm'}));
+      }
+      reset.onclick = function (event) {
+        websocket.send(JSON.stringify({button: 'press_reset'}));
+      }
+      
+    </script>
+  </body>
+</html>

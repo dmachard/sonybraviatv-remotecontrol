@@ -290,7 +290,23 @@ class SimpleIpProtocol:
         self.send_command(msg_type=TYPE_CONTROL, command=CMD_IRCC, 
                           parms=PARMS_IRCC_HOME)
 
+    def press_play(self):
+        """press play"""
+        self.send_command(msg_type=TYPE_CONTROL, command=CMD_IRCC, 
+                          parms=PARMS_IRCC_PLAY)
+    
+    def press_stop(self):
+        """press stop"""
+        self.send_command(msg_type=TYPE_CONTROL, command=CMD_IRCC, 
+                          parms=PARMS_IRCC_STOP)
+    
+    def press_pause(self):
+        """press pause"""
+        self.send_command(msg_type=TYPE_CONTROL, command=CMD_IRCC, 
+                          parms=PARMS_IRCC_PAUSE)
+                          
     def press_reset(self):
         """press reset"""
+        logging.debug("closing connection...")
         self.sock.close()
         self.start_client()
